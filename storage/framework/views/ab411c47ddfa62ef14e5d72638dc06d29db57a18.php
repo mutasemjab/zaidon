@@ -1,10 +1,8 @@
-@extends('layouts.admin')
+<?php $__env->startSection('title'); ?> 
+<?php echo e(__('messages.dashboard')); ?> 
+<?php $__env->stopSection(); ?>
 
-@section('title') 
-{{ __('messages.dashboard') }} 
-@endsection
-
-@section('css')
+<?php $__env->startSection('css'); ?>
 <style>
     .dashboard-container {
         padding: 20px;
@@ -220,19 +218,21 @@
         }
     }
 </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheaderlink')
-<a href="{{ route('admin.dashboard') }}">
-    {{ __('messages.home') }}
+<?php $__env->startSection('contentheaderlink'); ?>
+<a href="<?php echo e(route('admin.dashboard')); ?>">
+    <?php echo e(__('messages.home')); ?>
+
 </a>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('contentheaderactive')
-{{ __('messages.dashboard') }}
-@endsection
+<?php $__env->startSection('contentheaderactive'); ?>
+<?php echo e(__('messages.dashboard')); ?>
 
-@section('content')
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
 <div class="dashboard-container">
     
     <!-- Statistics Cards -->
@@ -241,48 +241,48 @@
             <div class="stat-icon">
                 <i class="fas fa-user-graduate"></i>
             </div>
-            <div class="stat-number">{{ number_format($totalStudents) }}</div>
-            <div class="stat-label">{{ __('messages.total_students') }}</div>
+            <div class="stat-number"><?php echo e(number_format($totalStudents)); ?></div>
+            <div class="stat-label"><?php echo e(__('messages.total_students')); ?></div>
         </div>
 
         <div class="stat-card teachers">
             <div class="stat-icon">
                 <i class="fas fa-chalkboard-teacher"></i>
             </div>
-            <div class="stat-number">{{ number_format($totalTeachers) }}</div>
-            <div class="stat-label">{{ __('messages.total_teachers') }}</div>
+            <div class="stat-number"><?php echo e(number_format($totalTeachers)); ?></div>
+            <div class="stat-label"><?php echo e(__('messages.total_teachers')); ?></div>
         </div>
 
         <div class="stat-card drivers">
             <div class="stat-icon">
                 <i class="fas fa-bus"></i>
             </div>
-            <div class="stat-number">{{ number_format($totalDrivers) }}</div>
-            <div class="stat-label">{{ __('messages.total_drivers') }}</div>
+            <div class="stat-number"><?php echo e(number_format($totalDrivers)); ?></div>
+            <div class="stat-label"><?php echo e(__('messages.total_drivers')); ?></div>
         </div>
 
         <div class="stat-card payments">
             <div class="stat-icon">
                 <i class="fas fa-coins"></i>
             </div>
-            <div class="stat-number">${{ number_format($totalPayments, 2) }}</div>
-            <div class="stat-label">{{ __('messages.total_payments') }}</div>
+            <div class="stat-number">$<?php echo e(number_format($totalPayments, 2)); ?></div>
+            <div class="stat-label"><?php echo e(__('messages.total_payments')); ?></div>
         </div>
 
         <div class="stat-card expenses">
             <div class="stat-icon">
                 <i class="fas fa-money-bill-wave"></i>
             </div>
-            <div class="stat-number">${{ number_format($totalExpenses, 2) }}</div>
-            <div class="stat-label">{{ __('messages.total_expenses') }}</div>
+            <div class="stat-number">$<?php echo e(number_format($totalExpenses, 2)); ?></div>
+            <div class="stat-label"><?php echo e(__('messages.total_expenses')); ?></div>
         </div>
 
         <div class="stat-card outstanding">
             <div class="stat-icon">
                 <i class="fas fa-exclamation-triangle"></i>
             </div>
-            <div class="stat-number">${{ number_format($totalOutstanding, 2) }}</div>
-            <div class="stat-label">{{ __('messages.outstanding_balance') }}</div>
+            <div class="stat-number">$<?php echo e(number_format($totalOutstanding, 2)); ?></div>
+            <div class="stat-label"><?php echo e(__('messages.outstanding_balance')); ?></div>
         </div>
     </div>
 
@@ -292,7 +292,8 @@
         <div class="chart-card">
             <h3 class="card-title">
                 <i class="fas fa-chart-line"></i>
-                {{ __('messages.monthly_financial_overview') }}
+                <?php echo e(__('messages.monthly_financial_overview')); ?>
+
             </h3>
             <div class="chart-container">
                 <canvas id="financialChart"></canvas>
@@ -303,16 +304,17 @@
         <div class="activity-card">
             <h3 class="card-title">
                 <i class="fas fa-users"></i>
-                {{ __('messages.student_status') }}
+                <?php echo e(__('messages.student_status')); ?>
+
             </h3>
             <div class="student-status-grid">
                 <div class="status-item status-active">
-                    <div class="status-number">{{ number_format($activeStudents) }}</div>
-                    <div>{{ __('messages.active_students') }}</div>
+                    <div class="status-number"><?php echo e(number_format($activeStudents)); ?></div>
+                    <div><?php echo e(__('messages.active_students')); ?></div>
                 </div>
                 <div class="status-item status-inactive">
-                    <div class="status-number">{{ number_format($inactiveStudents) }}</div>
-                    <div>{{ __('messages.inactive_students') }}</div>
+                    <div class="status-number"><?php echo e(number_format($inactiveStudents)); ?></div>
+                    <div><?php echo e(__('messages.inactive_students')); ?></div>
                 </div>
             </div>
         </div>
@@ -324,77 +326,85 @@
         <div class="activity-card">
             <h3 class="card-title">
                 <i class="fas fa-credit-card"></i>
-                {{ __('messages.recent_payments') }}
+                <?php echo e(__('messages.recent_payments')); ?>
+
             </h3>
-            @if($recentPayments->count() > 0)
-                @foreach($recentPayments as $payment)
+            <?php if($recentPayments->count() > 0): ?>
+                <?php $__currentLoopData = $recentPayments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $payment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="recent-item">
                     <div class="recent-item-header">
-                        {{ $payment->user->name ?? __('messages.unknown_student') }}
+                        <?php echo e($payment->user->name ?? __('messages.unknown_student')); ?>
+
                     </div>
                     <div class="recent-item-details">
-                        <span class="amount-positive">${{ number_format($payment->amount_paid, 2) }}</span>
-                        • {{ $payment->payment_date }}
-                        • {{ __('messages.receipt') }}: {{ $payment->receipt_number }}
+                        <span class="amount-positive">$<?php echo e(number_format($payment->amount_paid, 2)); ?></span>
+                        • <?php echo e($payment->payment_date); ?>
+
+                        • <?php echo e(__('messages.receipt')); ?>: <?php echo e($payment->receipt_number); ?>
+
                     </div>
                 </div>
-                @endforeach
-            @else
-                <div class="no-data">{{ __('messages.no_recent_payments') }}</div>
-            @endif
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php else: ?>
+                <div class="no-data"><?php echo e(__('messages.no_recent_payments')); ?></div>
+            <?php endif; ?>
         </div>
 
         <!-- Recent Expenses -->
         <div class="activity-card">
             <h3 class="card-title">
                 <i class="fas fa-receipt"></i>
-                {{ __('messages.recent_expenses') }}
+                <?php echo e(__('messages.recent_expenses')); ?>
+
             </h3>
-            @if($recentExpenses->count() > 0)
-                @foreach($recentExpenses as $expense)
+            <?php if($recentExpenses->count() > 0): ?>
+                <?php $__currentLoopData = $recentExpenses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $expense): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="recent-item">
                     <div class="recent-item-header">
-                        {{ $expense->typeExpense->name ?? __('messages.general_expense') }}
+                        <?php echo e($expense->typeExpense->name ?? __('messages.general_expense')); ?>
+
                     </div>
                     <div class="recent-item-details">
-                        <span class="amount-negative">${{ number_format($expense->amount, 2) }}</span>
-                        • {{ $expense->created_at->format('Y-m-d') }}
-                        @if($expense->note)
-                        • {{ Str::limit($expense->note, 50) }}
-                        @endif
+                        <span class="amount-negative">$<?php echo e(number_format($expense->amount, 2)); ?></span>
+                        • <?php echo e($expense->created_at->format('Y-m-d')); ?>
+
+                        <?php if($expense->note): ?>
+                        • <?php echo e(Str::limit($expense->note, 50)); ?>
+
+                        <?php endif; ?>
                     </div>
                 </div>
-                @endforeach
-            @else
-                <div class="no-data">{{ __('messages.no_recent_expenses') }}</div>
-            @endif
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php else: ?>
+                <div class="no-data"><?php echo e(__('messages.no_recent_expenses')); ?></div>
+            <?php endif; ?>
         </div>
     </div>
 
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('js')
+<?php $__env->startSection('js'); ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Financial Chart
     const ctx = document.getElementById('financialChart').getContext('2d');
-    const monthlyData = @json($monthlyData);
+    const monthlyData = <?php echo json_encode($monthlyData, 15, 512) ?>;
     
     new Chart(ctx, {
         type: 'line',
         data: {
             labels: monthlyData.map(item => item.month),
             datasets: [{
-                label: '{{ __("messages.payments") }}',
+                label: '<?php echo e(__("messages.payments")); ?>',
                 data: monthlyData.map(item => item.payments),
                 borderColor: '#28a745',
                 backgroundColor: 'rgba(40, 167, 69, 0.1)',
                 tension: 0.4,
                 fill: true
             }, {
-                label: '{{ __("messages.expenses") }}',
+                label: '<?php echo e(__("messages.expenses")); ?>',
                 data: monthlyData.map(item => item.expenses),
                 borderColor: '#dc3545',
                 backgroundColor: 'rgba(220, 53, 69, 0.1)',
@@ -428,4 +438,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\zaidon\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

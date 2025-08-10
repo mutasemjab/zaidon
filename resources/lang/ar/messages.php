@@ -350,6 +350,91 @@ return [
     'Amount' => 'المبلغ',
     'Payment' => 'الدفعة',
     'Total Paid' => 'إجمالي المدفوع',
+
+    'dashboard' => 'لوحة التحكم',
+    'show' => 'عرض',
+    
+    // Statistics
+    'total_students' => 'إجمالي الطلاب',
+    'total_teachers' => 'إجمالي المعلمين',
+    'total_drivers' => 'إجمالي السائقين',
+    'total_payments' => 'إجمالي المدفوعات',
+    'total_expenses' => 'إجمالي المصروفات',
+    'outstanding_balance' => 'الرصيد المستحق',
+    
+    // Chart and Analytics
+    'monthly_financial_overview' => 'نظرة عامة مالية شهرية',
+    'student_status' => 'حالة الطلاب',
+    'active_students' => 'الطلاب النشطون',
+    'inactive_students' => 'الطلاب غير النشطين',
+    'payments' => 'المدفوعات',
+    'expenses' => 'المصروفات',
+    
+    // Recent Activities
+    'recent_payments' => 'المدفوعات الأخيرة',
+    'recent_expenses' => 'المصروفات الأخيرة',
+    'no_recent_payments' => 'لا توجد مدفوعات حديثة',
+    'no_recent_expenses' => 'لا توجد مصروفات حديثة',
+    
+    // General
+    'unknown_student' => 'طالب غير معروف',
+    'general_expense' => 'مصروف عام',
+    'receipt' => 'إيصال',
+    'amount' => 'المبلغ',
+    'date' => 'التاريخ',
+    'note' => 'ملاحظة',
+    'name' => 'الاسم',
+    'phone' => 'الهاتف',
+    'address' => 'العنوان',
+    'salary' => 'الراتب',
+    'annual_installment' => 'القسط السنوي',
+    'past_balance' => 'الرصيد السابق',
+    'payment_date' => 'تاريخ الدفع',
+    'receipt_number' => 'رقم الإيصال',
+    
+    // Status
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
+    'activate' => 'تفعيل',
+    'deactivate' => 'إلغاء التفعيل',
+    
+    // Months
+    'january' => 'يناير',
+    'february' => 'فبراير',
+    'march' => 'مارس',
+    'april' => 'أبريل',
+    'may' => 'مايو',
+    'june' => 'يونيو',
+    'july' => 'يوليو',
+    'august' => 'أغسطس',
+    'september' => 'سبتمبر',
+    'october' => 'أكتوبر',
+    'november' => 'نوفمبر',
+    'december' => 'ديسمبر',
+    
+    // Actions
+    'view' => 'عرض',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
+    'add' => 'إضافة',
+    'save' => 'حفظ',
+    'cancel' => 'إلغاء',
+    'update' => 'تحديث',
+    'create' => 'إنشاء',
+    'search' => 'بحث',
+    'filter' => 'تصفية',
+    'export' => 'تصدير',
+    'print' => 'طباعة',
+    
+    // Messages
+    'success' => 'تمت العملية بنجاح',
+    'error' => 'حدث خطأ',
+    'warning' => 'تحذير',
+    'info' => 'معلومات',
+    'confirm_delete' => 'هل أنت متأكد من حذف هذا العنصر؟',
+    'no_data' => 'لا توجد بيانات متاحة',
+    'loading' => 'جارٍ التحميل...',
+
     ""=>"",
     ""=>"",
     ""=>"",

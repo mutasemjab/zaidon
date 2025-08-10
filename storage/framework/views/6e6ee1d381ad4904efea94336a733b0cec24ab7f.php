@@ -4,5 +4,6 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 <a href="">Ibn Zaidon</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="">Battle</a>.</strong> All rights reserved.
   </footer>
+<?php /**PATH C:\xampp\htdocs\zaidon\resources\views/admin/includes/footer.blade.php ENDPATH**/ ?>
